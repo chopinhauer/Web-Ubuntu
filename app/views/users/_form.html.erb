@@ -1,0 +1,41 @@
+ <div class="tag">
+    <%= render "shared/errors", obj: @user %>
+</div>
+<div id="login">
+  <div class="login">
+    <h1>Sign Up</h1>
+    <%= form_with(model: @user, class: "shadow-sm p-4 bg-light rounded", local: true) do |f| %>
+            <%= f.label :username, class: "col-4 col-form-label  " %>
+            <%= f.text_field :username, class: "form-control shadow rounded input", placeholder: "Enter username" %>
+            <%= f.label :email, class: "col-4 col-form-label " %>
+             <%= f.email_field :email, class: "form-control shadow rounded input", placeholder: "Enter e-mail address" %>
+             <%= f.label :password, class: "col-4 col-form-label " %>
+             <%= f.password_field :password, class: "form-control shadow rounded input", placeholder: "Enter your password" %>
+
+               <ul class="list-unstyled pl-4 ml-1 mt-4">
+                 <li><div class="form-group row justify-content-center mt-4  ">
+                   <%= f.submit(@user.new_record? ? "Sign Up" : "Update account", class: "btn btn-primary btn-block ") %>
+                 </div></li>
+                 <li><div class="form-group row justify-content-center">
+                   or
+                 </div></li>
+                 <li><div class="form-group row justify-content-center">
+                   <%= link_to '/auth/google_oauth2' do %>
+                     <div class="google-btn">
+                       <div class="google-icon-wrapper">
+                         <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+                       </div>
+                       <p class="btn-text"><b>  Sign in with Google</b></p>
+                     </div>
+                   <%end%>
+                 </div></li>
+               </ul>
+               <%end%>
+
+    <div class="row">
+      <div class=" text-center center">
+        <%= link_to "[ Cancel and Returns to articles listing ]", articles_path() %>
+      </div>
+    </div>
+  </div>
+</div>

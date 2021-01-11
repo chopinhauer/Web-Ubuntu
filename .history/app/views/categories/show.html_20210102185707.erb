@@ -1,0 +1,16 @@
+<h1 class=" text-center mt-4">Category : <%= @category.name %> </h1>
+
+  
+  <div class="row">
+    <div class="col-12">
+    <div class="text-center mt-3">
+            <% if logged_in? && current_user.admin? %>
+              <%= link_to "Edit Category Name", edit_category_path(@category), class: "btn btn-outline-dark" %>
+            <% end %>  
+          </div>
+      <h3 class="text-center mt-5">  Articles in this Category</h3>
+      
+      <%= render "articles/article_category" %>
+          
+    </div>  
+  </div> 

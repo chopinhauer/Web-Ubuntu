@@ -1,0 +1,15 @@
+current directory: /home/faruk/Masaüstü/Web Ödev/web/path/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+/home/faruk/.rbenv/versions/2.7.2/bin/ruby -I /home/faruk/.rbenv/versions/2.7.2/lib/ruby/2.7.0 -r ./siteconf20210104-30979-wve6we.rb extconf.rb
+creating Makefile
+
+current directory: /home/faruk/Masaüstü/Web Ödev/web/path/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /home/faruk/Masaüstü/Web Ödev/web/path/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.so
+
+current directory: /home/faruk/Masaüstü/Web Ödev/web/path/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.so ./.gem.20210104-30979-mfjvc6/skiptrace/internal

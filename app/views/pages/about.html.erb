@@ -1,0 +1,61 @@
+<html>
+  <head>
+     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+     <style></style>
+  </head>
+<body>
+    <div class="main" id="section1">
+      <div class="about-section">
+        <div class="about-text">
+          <h1>About Us </h1>
+          <p>Some text about who we are and what we do.</p>
+          <div class="container ">
+            <p>Aenean interdum lorem et mi sollicitudin bibendum. Nulla eu neque ac nibh imperdiet venenatis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut sed lectus lacus. Sed commodo magna sed consequat suscipit. Praesent tincidunt purus in magna suscipit euismod. Donec ac velit sodales, rhoncus leo in, mattis justo. Nam id diam vitae tellus accumsan consectetur. Mauris volutpat dui nisl, eget auctor nisl viverra a. Nunc efficitur, orci et mattis ullamcorper, tellus velit euismod tortor, ut pretium massa nulla non ligula. Proin ornare velit vitae congue viverra. </p>
+          </div>
+        </div>
+      <a class="scroll-down" address="true" href="#section2"></a>
+      </div>
+    </div>
+  <div class="container">
+    <div class="main" id="section2">
+      <div class="row text-center">
+       <div class="col-xl-4 col-sm-6 mt-4 center">
+           <div class="bg-white rounded shadow-sm py-5 px-4"><%= image_tag("pp.jpg", { :style => "width:60%;", :class => "photo-radius img-fluid rounded-circle mb-3 img-thumbnail shadow-lg" }) %>
+             <h5 class="mb-0">Faruk Gürlesin</h5><span class="small text-uppercase text-muted">Web Developer</span>
+             <hr>
+             <span class="small text-uppercase text-muted"><p>19253062</p></span>
+             <!-- <p>fgurlesin19@posta.pau.edu.tr</p> -->
+             <ul class="social mb-0 list-inline mt-3">
+               <li class="list-inline-item"><a href="mailto:fgurlesin19@posta.pau.edu.tr" class="social-link"><i class="fa fa-envelope"></i></a></li>
+               <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
+               <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
+               <li class="list-inline-item"><a href="https://www.instagram.com/chopinhauer/" class="social-link"><i class="fa fa-instagram"></i></a></li>
+               <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
+             </ul>
+             <%= link_to "  Profile", user_path(1), class: "fa fa-user btn btn-sm btn-dark mt-4" %>
+           </div>
+         </div>
+         <div class="col-xl-4 col-sm-6 mt-4 center">
+           <div class="bg-white rounded shadow-sm py-5 px-4"><%= image_tag("pp.jpg", { :style => "width:60%;", :class => "photo-radius img-fluid rounded-circle mb-3 img-thumbnail shadow-lg" }) %>
+             <h5 class="mb-0">İhsan Berke Buğday</h5>
+             <span class="small text-uppercase text-muted">Web Developer</span>
+             <hr>
+             <span class="small text-uppercase text-muted"><p>19253068</p></span>
+             <!-- <p>ibbugday19@posta.pau.edu.tr</p>  -->
+             <ul class="social mb-0 list-inline mt-3">
+               <li class="list-inline-item"><a href="mailto:ibbugday19@posta.pau.edu.tr" class="social-link"><i class="fa fa-envelope"></i></a></li>
+               <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
+               <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
+               <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-instagram"></i></a></li>
+               <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
+             </ul>
+             <%= link_to "  Profile", user_path(2), class: "fa fa-user btn btn-sm btn-dark mt-4" %>
+           </div>
+         </div>
+         <!-- End-->
+       </div>
+    </div>
+  </div>
+  <%= render  "layouts/footer" %>
+  </body>
+</html>

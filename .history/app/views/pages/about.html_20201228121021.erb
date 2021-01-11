@@ -1,0 +1,42 @@
+<div class="about-section">
+  <h1>About Us Page</h1>
+  <p>Some text about who we are and what we do.</p>
+  <p>Resize the browser window to see that this page is responsive by the way.</p>
+</div> 
+<div class="row center">
+      
+      <div class="column card mt-4 col-sm">
+        <div class="row">
+          <div class="column col-sm-4 mt-4">
+            <div> 
+              <%= image_tag("pp.jpg", {:style => "width:100%;"}) %>
+            </div>
+          </div>
+          
+          <div class="column col-sm-8">
+            <div class="container mt-4">
+              <h2>Faruk GÜRLESİN</h2>
+                <p class="title">Web Developer</p>
+                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                <p>fgurlesin19@posta.pau.edu.tr</p>
+                <p><%= link_to 'Profile' , root_path() ,class:"btn btn-dark btn-lg my-3 " %></p>
+            </div>
+          </div>
+        </div>  
+      </div>
+      
+    
+      <div class="column col-sm">
+        <div class="card mt-4">
+          <img src="/w3images/team2.jpg" alt="Photo" style="width:100%">
+          <div class="container">
+            <h2>Berke BUĞDAY</h2>
+            <p class="title">Web Developer</p>
+            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+            <p>bbugday19@posta.pau.edu.tr</p>
+            <p><%= link_to 'Profile' , root_path() ,class:"btn btn-dark btn-lg my-3 " %></p>
+          </div>
+        </div>
+      </div>
+
+</div>

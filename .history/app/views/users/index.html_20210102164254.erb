@@ -1,0 +1,36 @@
+ 
+<h3 class="text-center mt-4"> Bloggers List </h3>
+
+
+ <div class="container  ">
+    <% @users.each do |user| %>
+      <div class="row justify-content-md-center ">
+        <div class="col-8">
+          <div class="card text-center shadow bg-white rounded">
+            <div class="card-header font-italic">
+                <%= link_to user.username , user %>
+            </div>
+            <div class="card-body">
+              <p class="card-text"> Has <%= pluralize( user.articles.count , " Articles" ,) %>
+              <p class="card-text"> <%= pluralize( user.articles , " articles" ,) %>
+              </p> <%= link_to 'View Profile' , user , class:"btn-sm btn-dark"  %> 
+                <% if logged_in? %> 
+                  <% if user==current_user %>  
+                    <%= link_to 'Edit Your Profile' , edit_user_path(user)  , class:"btn-sm btn-dark" %>   
+                  <%elsif current_user.admin? %>
+                    <%= link_to "Edit This User" , edit_user_path(user)  , class:"btn-sm btn-dark" %>
+                    <%=link_to "Delete This User" , user_path(user) , class: "btn-sm btn-danger" , method: :delete , data: {confirm: "This account will be delete ! Are you sure? " } %>
+                  <%end%>
+                <%end%>
+                  
+            </div>
+            <div class="card-footer text-muted">
+              <small>Joined <%=time_ago_in_words(user.created_at)%> ago   </small>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  
+ 

@@ -1,0 +1,37 @@
+current directory: /home/faruk/Masaüstü/Web Ödev/web/path/ruby/2.7.0/gems/duktape-2.3.0.0/ext/duktape
+/home/faruk/.rbenv/versions/2.7.2/bin/ruby -I /home/faruk/.rbenv/versions/2.7.2/lib/ruby/2.7.0 -r ./siteconf20210104-30979-cvbcen.rb extconf.rb
+checking for rb_sym2str()... yes
+creating Makefile
+
+current directory: /home/faruk/Masaüstü/Web Ödev/web/path/ruby/2.7.0/gems/duktape-2.3.0.0/ext/duktape
+make "DESTDIR=" clean
+
+current directory: /home/faruk/Masaüstü/Web Ödev/web/path/ruby/2.7.0/gems/duktape-2.3.0.0/ext/duktape
+make "DESTDIR="
+compiling duktape.c
+duktape.c: In function ‘duk_err_handle_error_fmt’:
+duktape.c:11617:2: warning: function ‘duk_err_handle_error_fmt’ might be a candidate for ‘gnu_printf’ format attribute [-Wsuggest-attribute=format]
+11617 |  (void) DUK_VSNPRINTF(msg, sizeof(msg), fmt, ap);
+      |  ^
+duktape.c: In function ‘duk__try_push_vsprintf’:
+duktape.c:22262:2: warning: function ‘duk__try_push_vsprintf’ might be a candidate for ‘gnu_printf’ format attribute [-Wsuggest-attribute=format]
+22262 |  len = DUK_VSNPRINTF((char *) buf, sz, fmt, ap);
+      |  ^~~
+duktape.c: In function ‘duk_debugger_detach’:
+duktape.c:15963:19: warning: function might be candidate for attribute ‘noreturn’ [-Wsuggest-attribute=noreturn]
+15963 | DUK_EXTERNAL void duk_debugger_detach(duk_hthread *thr) {
+      |                   ^~~~~~~~~~~~~~~~~~~
+duktape.c: In function ‘duk_debugger_attach’:
+duktape.c:15941:19: warning: function might be candidate for attribute ‘noreturn’ [-Wsuggest-attribute=noreturn]
+15941 | DUK_EXTERNAL void duk_debugger_attach(duk_hthread *thr,
+      |                   ^~~~~~~~~~~~~~~~~~~
+duktape.c: At top level:
+cc1: warning: unrecognized command line option ‘-Wno-self-assign’
+cc1: warning: unrecognized command line option ‘-Wno-parentheses-equality’
+cc1: warning: unrecognized command line option ‘-Wno-constant-logical-operand’
+compiling duktape_ext.c
+linking shared-object duktape_ext.so
+
+current directory: /home/faruk/Masaüstü/Web Ödev/web/path/ruby/2.7.0/gems/duktape-2.3.0.0/ext/duktape
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 duktape_ext.so ./.gem.20210104-30979-h4i2we

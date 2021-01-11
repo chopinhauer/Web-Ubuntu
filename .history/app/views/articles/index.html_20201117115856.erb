@@ -1,0 +1,11 @@
+  
+<%= render 'article' %>  
+
+<div class="digg_pagination apple_pagination  my-4">
+    <div class="page_info  ">
+      <%= page_entries_info @article %>
+    </div>
+    <%= will_paginate @article, :container => false %>
+</div>
+
+  

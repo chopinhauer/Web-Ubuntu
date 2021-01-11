@@ -1,0 +1,35 @@
+<div class="box">
+  <article class="media">
+    <div class="media-content">
+      <div class="content">
+        <p>
+        <%= comment.name %>
+        <%= comment.comment%>
+        </p>
+      </div>
+    </div>
+    <%= link_to 'Delete' , [comment.article, comment] , method: :delete , class: "button is-danger", data:{confirm: "Are you sure ?"}%>
+  </article>
+</div>
+
+
+<div class="card">
+  <div class="card-header">
+    Quote
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote text-left mb-0">
+      <p><%= comment.name.capitalize %> : </p>
+      <footer class="blockquote-footer"><%= comment.comment%> <cite title="Source Title"><%=comment.created_at%></cite></footer>
+    </blockquote>
+  </div>
+</div>
+
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>

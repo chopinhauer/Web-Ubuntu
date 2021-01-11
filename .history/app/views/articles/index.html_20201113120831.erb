@@ -1,0 +1,19 @@
+<h1 class="text-center mt-4"> Listing all articles </h1> 
+
+<div class="digg_pagination apple_pagination  mb-4">
+    <div class="page_info  ">
+      <%= page_entries_info @article %>
+    </div>
+    <%= will_paginate @article, :container => false %>
+</div>
+
+<%= render 'article' %>  
+
+<div class="digg_pagination apple_pagination  mb-4">
+    <div class="page_info  ">
+      <%= page_entries_info @article %>
+    </div>
+    <%= will_paginate @article, :container => false %>
+</div>
+
+  

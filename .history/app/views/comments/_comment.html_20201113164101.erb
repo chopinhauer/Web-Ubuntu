@@ -1,0 +1,31 @@
+<div class="box">
+  <article class="media">
+    <div class="media-content">
+      <div class="content">
+        <p>
+        <%= comment.name %>
+        <%= comment.comment%>
+        </p>
+      </div>
+    </div>
+    <%= link_to 'Delete' , [comment.article, comment] , method: :delete , class: "button is-danger", data:{confirm: "Are you sure ?"}%>
+  </article>
+</div>
+
+
+<div class="card">
+  <div class="card-header">
+   <span class="text-left"> <%= comment.name.capitalize %> </span>  
+   <div class="text-right"><%= time_ago_in_words(comment.created_at) %></div>
+  </div>
+  <div class="card-body"> 
+      
+      <div class="container ml-3">
+      <blockquote class="blockquote  mb-0">
+      <span class="lead float-left"><%= comment.comment%> </span>
+      <%= link_to 'Delete' , [comment.article, comment] , method: :delete , class: "btn btn-sm btn-danger float-right", data:{confirm: "Are you sure ?"}%>
+    </blockquote>
+    </div>
+  </div>
+</div>
+

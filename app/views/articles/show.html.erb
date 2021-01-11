@@ -1,0 +1,91 @@
+ <div class="container" >
+      <div class="row justify-content-md-center rounded" >
+        <div class="col-10 mb-5 bg-transparent "  >
+          <div class="card text-center shadow-lg mb-5" id="card_body_show">
+            <div class="card-body" >
+               <div class="img-fluid rounded mx-auto d-block my-4  border border-dark" style=" width:800px ; height:auto">
+                <%= image_tag(@article.image, style: "width:100%") if @article.image.attached? %>
+               </div>
+              <h1 class="text-center my-2 "> <%= @article.tittle.capitalize %> </h1>
+              <div id="article_description">
+                <p class="card-text text-left mt-2" ><%= @article.description %></p>
+                <hr>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="mt-2 float-left">
+                        <span id="like_and_share">
+                          Share
+                          <div class="container ">
+                            <%= social_share_button_tag(@article.tittle) %>
+                          </div>
+                        </span>
+                    </div>
+                 </div>
+
+
+                  <div class="col float-right">
+                    <div class="col">
+                       <div class="float-right mt-4 mx-2 social-link"><a id="sectionComment" address="true" href="#sectionComment">Comment</a></div>
+                    </div>
+                    <div class="col">
+                      <div class="mt-3 float-right mx-4">
+                      <% if logged_in? %>
+                        <% pre_like = @article.likes.find { |like| like.user_id == current_user.id } %>
+                          <% if pre_like %>
+                              <span class="unlike">
+                              <%= link_to '', article_like_path(@article, pre_like), class: "fa fa-lg fa-heart" , method: :delete  %>
+                            </span>
+                          <% else %>
+                            <span class="like">
+                              <%= link_to '', article_likes_path(@article), class: "fa fa-lg fa-heart" , method: :post %>
+                            </span>
+                          <% end %>
+                      <% end %>
+                    </div>
+                  </div>
+                   </div>
+              </div>
+              <hr>
+              <h5 class="subtitle  "><strong><%= @article.comments.count %> <%= (@article.comments.count) == 1 ? "Comment" : "Comments" %> | <%= @article.likes.count %> <%= (@article.likes.count) == 1 ? "Like" : "Likes" %></strong></h5>
+                  <div>
+                  <hr/>
+                    <% if @article.categories.any? %>
+                     Tags :
+                        <%= render @article.categories %>
+                    <% end %>
+                   </div>
+                <small>Created <%= time_ago_in_words(@article.created_at) %> ago  , Edited <%= time_ago_in_words(@article.created_at) %> ago </small>
+                <div class=" font-italic">
+                  by <%= @article.user.username if @article.user %>
+                </div>
+                <hr>
+                <div class="">
+                  <% if logged_in? && (@article.user == current_user || current_user.admin?) %>
+                    <div class="mt-4 ">
+                        <%= link_to "Delete This Post", article_path(@article), method: :delete, data: { confirm: "Are you sure ?" }, class: "btn-sm btn-dark" %>
+                        <%= link_to "Edit This Post", edit_article_path(@article), class: "btn-sm btn-dark" %>
+                    </div>
+                   <% end %>
+                </div>
+            </div>
+          </div>
+            <div class="card-footer text-muted">
+              <section class="section comments" id="section">
+                    <%= render @article.comments %>
+                  <div class="comment-form">
+                    <hr />
+                  <% if logged_in? %>
+                    <h4 class="subtitle is-3"> Leave a Comment </h4>
+                  <% else %>
+                    <h4 class="subtitle is-3"> Log in or Signup to write something </h4>
+                  <% end %>
+                  <div class="pb-5">
+                  <%= render "comments/form" %>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>

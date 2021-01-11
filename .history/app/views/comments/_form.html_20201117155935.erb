@@ -1,0 +1,25 @@
+<div class="container my-5">
+<%if logged_in?%>
+<%= form_for [@article, @article.comments.build] do |f| %>
+ <div class="container mb-4 ">
+    <div class="row pb-cmnt-container  ">
+        <div class=" ">
+            <div class="panel ">
+                <div class="panel-body pb-cmnt-textarea">  
+                  <div class="form-group row">  
+                    <div class="col-12 "> 
+                      <%=f.text_area :comment  , class:"pb-cmnt-textarea" ,  placeholder:"Add your comment"   %>
+                    </div>
+                  </div> 
+                    <form class="form-group row">  
+                         <%=f.submit "Add Comment" , class: "btn btn-dark"%>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+<%end%>
+ <%end%>
+</div>

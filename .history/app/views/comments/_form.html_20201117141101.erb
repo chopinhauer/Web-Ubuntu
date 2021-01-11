@@ -1,0 +1,38 @@
+<%if logged_in?%>
+<%= form_for [@article, @article.comments.build] do |f| %>
+  <div class="form-group mt-4">
+  <div class="field">
+    <div class="control">
+       
+      <%=f.text_area :name , input_html: {class: 'input'} , placeholder:"Name" ,wrapper: false , label_html: {class: 'label'} %>
+    </div>
+  </div> 
+  </div>
+<div class="form-group mt-4">
+  <div class="field">
+    <div class="control">
+       
+      <%=f.text_area :comment , input_html: {class: 'textarea'} , placeholder:"Comment" ,wrapper: false , label_html: {class: 'label'} %>
+    </div>
+  </div> 
+</div>
+  <%=f.submit "Add Comment" ,class: "btn btn-dark"%>
+<%end%>
+ <%end%>
+
+<div class="container pb-cmnt-container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-3">
+            <div class="panel panel-info">
+                <div class="panel-body">
+                    <textarea placeholder="Write something ! " class="pb-cmnt-textarea"></textarea>
+                    <%=f.text_area :comment , input_html: {class: 'textarea'} , placeholder:"Comment" ,wrapper: false , label_html: {class: 'label'} %>
+   
+                    <form class="form-inline"> 
+                        <button class="btn btn-dark " type="button">Add Comment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

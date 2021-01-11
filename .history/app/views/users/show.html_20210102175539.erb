@@ -1,0 +1,10 @@
+
+<div class="row page-content">
+    <div class="col-12 ">
+      <h3 class="text-center mt-4">  User <strong> <%=@user.username.capitalize%></strong>'s articles </h3>
+      <%if @user.articles.count!=0%>
+      <%= render 'articles/article_category'  %>
+      <%end%>
+    </div>
+</div>
+

@@ -1,0 +1,34 @@
+<%if logged_in?%>
+<%= form_for [@article, @article.comments.build] do |f| %>
+ <div class="container pb-cmnt-container">
+    <div class="row">
+        <div class="col-md-10  ">
+            <div class="panel panel-info">
+                <div class="panel-body pb-cmnt-textarea">
+
+                    <div class="form-group row">
+                        <%= f.label :Tittle , class:"col-2 col-form-label "%>  
+                      <div class="col-10">
+                        <%=f.text_area :name  , input_html: {class: 'input'} , placeholder:"Name" ,wrapper: false   %>
+                      </div> 
+                    </div>
+
+                  <div class="form-group row"> 
+                      <%= f.label :Description , class:"col-2 col-form-label "%> 
+                    <div class="col-10"> 
+                      <%=f.text_area :comment , input_html: {class: 'textarea'} , placeholder:"Comment" ,wrapper: false  %>
+                    </div>
+                  </div>
+                         
+                    <form class="form-group row">  
+                         <%=f.submit "Add Comment" ,class: "btn btn-dark"%>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+<%end%>
+ <%end%>
+

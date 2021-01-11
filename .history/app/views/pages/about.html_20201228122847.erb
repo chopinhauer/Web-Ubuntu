@@ -1,0 +1,79 @@
+ 
+
+
+
+
+<html>
+<head>
+<style>
+html {
+  scroll-behavior: smooth;
+}
+
+#section1 {
+  height: 600px; 
+}
+
+#section2 {
+  height: 600px; 
+}
+</style>
+</head>
+<body>
+
+<h1>Smooth Scroll</h1>
+
+<div class="main" id="section1">
+  <div class="about-section">
+  <h1>About Us </h1>
+  <p>Some text about who we are and what we do.</p>
+  <p>Resize the browser window to see that this page is responsive by the way.</p>
+</div>
+  <a href="#section2">Click Me to Smooth Scroll to Section 2 Below</a>
+</div>
+
+<div class="main" id="section2">
+  <div class="row mt-4">
+      <div class="column card mt-4 col-sm">
+        <div class="row">
+          <div class="column col-sm-4 mt-4">
+            <div> 
+              <%= image_tag("pp.jpg", {:style => "width:100%;"}) %>
+            </div>
+          </div>
+          <div class="column col-sm-8">
+            <div class="container mt-4">
+              <h2>Faruk GÜRLESİN</h2>
+                <p class="title">Web Developer</p>
+                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                <p>fgurlesin19@posta.pau.edu.tr</p>
+                <p><%= link_to 'Profile' , root_path() ,class:"btn btn-dark btn-lg my-3 " %></p>
+            </div>
+          </div>
+        </div>  
+      </div>
+      
+      <div class="column card mt-4 col-sm">
+        <div class="row">
+          <div class="column col-sm-4 mt-4">
+            <div> 
+              <%= image_tag("pp.jpg", {:style => "width:100%;"}) %>
+            </div>
+          </div>
+          <div class="column col-sm-8">
+            <div class="container mt-4">
+              <h2>İhsan Berke BUĞDAY</h2>
+                <p class="title">Web Developer</p>
+                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                <p>ibbugday19@posta.pau.edu.tr</p>
+                <p><%= link_to 'Profile' , root_path() ,class:"btn btn-dark btn-lg my-3 " %></p>
+            </div>
+          </div>
+        </div>  
+      </div>
+</div>
+  <a href="#section1">Click Me to Smooth Scroll to Section 1 Above</a>
+</div>
+
+</body>
+</html>

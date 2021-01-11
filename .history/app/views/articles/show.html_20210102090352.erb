@@ -1,0 +1,63 @@
+ <div class="container" > 
+      <div class="row justify-content-md-center rounded" >
+        <div class="col-810  mb-5 mt-5 bg-transparent "  >
+          <div class="card text-center shadow-lg mt-4 mb-5  " id="card_body_show">  
+            <div class="card-body" >   
+               <div class="img-fluid rounded mx-auto d-block my-5  border border-dark" style=" width:800px ; height:auto">
+                <%= image_tag(@article.image , style:"width:100%") if @article.image.attached?%> 
+               </div> 
+              <h1 class="text-center mt-5 "> <%= @article.tittle.capitalize %> </h1>
+              <p class="card-text text-left mt-5"><%=  @article.description  %></p> 
+              <div class="my-5">
+                <% if logged_in? && (@article.user==current_user || current_user.admin?) %>
+                  <%= link_to 'Delete' , article_path(@article) ,  method: :delete , data: {confirm:"Are you sure ?"} , class:"btn-sm btn-dark" %> 
+                  <%= link_to 'Edit' , edit_article_path(@article) , class:"btn-sm btn-dark" %>   
+                <% end %>
+              </div>
+            </div>
+            <div class="card-footer text-muted">
+                <div>  
+                  <% if @article.categories.any?%>
+                   Tags : 
+                      <%= render @article.categories %> 
+                  <%end%> 
+                 </div> 
+              <small>Created <%=time_ago_in_words(@article.created_at)%> ago  , Edited <%=time_ago_in_words(@article.created_at)%> ago </small>
+              <div class=" font-italic">
+                by <%= @article.user.username if @article.user%>
+              </div>
+              <section class="section comments">  
+                <div class="container">
+                  <h5 class="subtitle  "><strong><%=@article.comments.count%> <%= (@article.comments.count) == 1 ? 'Comment' : 'Comments'%> | <%= @article.likes.count %> <%= (@article.likes.count) == 1 ? 'Like' : 'Likes'%></strong></h5>
+                    <h3></h3>
+                 <%if logged_in?%>
+                  <% pre_like = @article.likes.find { |like| like.user_id == current_user.id} %>
+
+                    <% if pre_like %>
+                      <%= button_to 'Unlike', article_like_path(@article, pre_like), method: :delete %>
+                    <% else %>
+                      <%= button_to 'Like', article_likes_path(@article), method: :post %>
+                    <% end %> 
+                  <%end%>
+                  <hr/>
+                    <%= render @article.comments %> 
+                  <div class="comment-form"> 
+                  
+                    <hr />
+                  <%if logged_in?%>
+                    <h4 class="subtitle is-3"> Leave a Comment </h4> 
+                    
+                  <% else %>
+                    <h4 class="subtitle is-3"> Log in or Signup to write something </h4> 
+                  <%end%>
+                  <div class="pb-5">
+                  <%=render 'comments/form'%>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div> 
+  </div>
+ 

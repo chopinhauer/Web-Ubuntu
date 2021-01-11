@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="col-sm-9">
+       <% @article.each do |article| %>
+        <div class="row justify-content-md-center ">
+          <div class="col-12 shadow" id="container_style">
+            <div class=" text-center rounded shadow-lg my-5 mx-4 " id="card_body">
+              <div class="card-header font-italic " id="card_header">
+                <% if article.user %>
+                  by <%= link_to article.user.username , user_path(article.user)   %>
+                <% end %>
+              </div> 
+              <div class="card-body rounded "> 
+                <div class="img-fluid rounded shadow mx-auto d-block" style=" width:700px ; height:auto">
+                  <%= link_to image_tag(article.image , style:"width:100%") , article_path(article) if article.image.attached?%>
+                </div>
+                
+                <h4 class="card-title mt-4"><%= link_to article.tittle , article_path(article) , class:"font-weight-bold text-dark text-capitalize" %></h4>
+                
+                <p class="card-text mx-5 "  ><%=  article.description    %></p> 
+                   
+                  <%if logged_in? && (article.user==current_user || current_user.admin? ) %>
+                    <%= link_to 'Edit' , edit_article_path(article) , class:"btn-sm btn-dark" %>  
+                    <%= link_to 'Delete' , article_path(article.id) ,  method: :delete , data: {confirm:"Are you sure ?"} , class:"btn-sm btn-dark" %> 
+                  <%end%>  
+              </div>
+              <div class="card-footer text-muted">
+                  <div class="my-2"> 
+                    <% if article.categories.any?%> 
+                      Tags : 
+                        <%= render article.categories %> 
+                    <%end%> 
+                  </div> 
+                  <h5 class="subtitle  "><strong><%=article.comments.count%> <%= (article.comments.count) == 1 ? 'Comment' : 'Comments'%> | <%= article.likes.count %> <%= (article.likes.count) == 1 ? 'Like' : 'Likes'%></strong></h5>
+                 
+                <small>Created <%=time_ago_in_words(article.created_at)%> ago  , Edited <%=time_ago_in_words(article.updated_at)%> ago </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+     
+  </div>
+  <div class="col-sm-3">
+    <div class="card ">
+      <div class="card-header">
+            Categories
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <div class="card-body">
+                <p class="card-title  ">
+                     <% @category.each do |category| %> 
+                        <%= link_to category.name , category_path(category) , class:"font-weight-bold text-dark text-capitalize" %>(<%=  category.articles.count %>)</p>
+                      <%end%> 
+              </div> 
+            </li> 
+          </ul>
+        </div>
+    </div>
+  </div>
+</div>
+
+ 
